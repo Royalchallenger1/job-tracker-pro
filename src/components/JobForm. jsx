@@ -1,5 +1,5 @@
-import JobForm from './components/JobForm';
-import JobCard from './components/JobCard'; 
+import React, { useState } from 'react';
+import { Button } from './Button'; 
 
 const JobForm = ({ onAddJob }) => {
   const [title, setTitle] = useState(''); 
@@ -8,7 +8,7 @@ const JobForm = ({ onAddJob }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title.trim() || !company.trim()) {
-      alert("Please fill in both fields!");
+      alert("Please fill in all fields!");
       return;
     }
     onAddJob(title, company); 
@@ -20,17 +20,17 @@ const JobForm = ({ onAddJob }) => {
     <form onSubmit={handleSubmit} className="job-form">
       <input 
         type="text" 
-        placeholder="Job Title" 
+        placeholder="Job Title..." 
         value={title} 
         onChange={(e) => setTitle(e.target.value)} 
       />
       <input 
         type="text" 
-        placeholder="Company" 
+        placeholder="Company Name..." 
         value={company} 
         onChange={(e) => setCompany(e.target.value)} 
       />
-      <Button type="submit">Add Job</Button>
+      <Button type="submit">Add Job Post</Button>
     </form>
   );
 };
