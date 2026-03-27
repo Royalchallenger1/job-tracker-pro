@@ -1,0 +1,38 @@
+// components/JobCard.jsx
+import { Button } from './Button. jsx';
+
+export default function JobCard({ job, onDelete, onUpdateStatus }) {
+  const statusColors = {
+    'Applied': '#bdc3c7',
+    'Interview': '#2ecc71',
+    'Offer': '#f1c40f',
+    'Rejection': '#e74c3c'
+  };
+
+  return (
+    <div className="job-card">
+      <div className="job-info">
+        <h3>{job.title}</h3>
+        <p>{job.company} - via {job.platform}</p>
+        <span className="status-badge" style={{ backgroundColor: statusColors[job.status] }}>
+          {job.status}
+        </span>
+      </div>
+      
+      <div className="job-meta">
+        <p>Added: {job.date}</p>
+        <p>{job.notes ? `Notes: ${job.notes}` : "No notes"}</p>
+      </div>
+      
+      <div className="card-actions">
+        <Button onClick={() => onDelete(job.id)} className="delete-btn">Delete</Button>
+        <select value={job.status} onChange={(e) => onUpdateStatus(job.id, e.target.value)} className="select-badge">
+          <option>Applied</option>
+          <option>Interview</option>
+          <option>Offer</option>
+          <option>Rejection</option>
+        </select>
+      </div>
+    </div>
+  );
+}
