@@ -1,7 +1,7 @@
 // App.jsx
 import { useState, useEffect } from 'react';
-import JobForm from './components/JobForm. jsx';
-import JobCard from './components/JobCard. jsx';
+import JobForm from './components/JobForm . jsx';
+import JobCard from './components/JobCard . jsx';
 import DashboardStats from './components/DashboardStats. jsx';
 import './App.css';
 
