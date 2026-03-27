@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import JobForm from "./components/JobForm"; 
-import JobCard from "./components/JobCard"; 
-import DashboardStats from "./components/DashboardStats"; 
+import JobForm from "./components/JobForm";
+import JobCard from "./components/Test";
+import DashboardStats from "./components/DashboardStats";
 import "./App.css";
 
 function App() {
