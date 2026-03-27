@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Button } from './Button'; 
 
 const JobForm = ({ onAddJob }) => {
-  const [title, setTitle] = useState(''); 
+  const [title, setTitle] = useState('');
   const [company, setCompany] = useState('');
 
   const handleSubmit = (e) => {
@@ -11,26 +10,24 @@ const JobForm = ({ onAddJob }) => {
       alert("Please fill in all fields!");
       return;
     }
-     onAddJob(title, company); 
-    setTitle(''); 
+    onAddJob(title, company);
+    setTitle('');
     setCompany('');
   };
 
   return (
-    <form onSubmit={handleSubmit} className="job-form">
+    <form onSubmit={handleSubmit}>
       <input 
-        type="text" 
-        placeholder="Job Title..." 
         value={title} 
         onChange={(e) => setTitle(e.target.value)} 
+        placeholder="Job Title" 
       />
       <input 
-        type="text" 
-        placeholder="Company Name..." 
         value={company} 
         onChange={(e) => setCompany(e.target.value)} 
+        placeholder="Company" 
       />
-      <Button type="submit">Add Job Post</Button>
+      <button type="submit">Add Job</button>
     </form>
   );
 };
