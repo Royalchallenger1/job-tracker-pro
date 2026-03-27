@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import JobForm from "./components/JobForm";
-import JobCard from "./components/Test";
+import JobCard from "./components/JobCardTemp";
 import DashboardStats from "./components/DashboardStats";
 import "./App.css";
 
