@@ -1,27 +1,4 @@
-// components/DashboardStats.jsx
-export default function DashboardStats({ jobs }) {
-  const total = jobs.length;
-  const applied = jobs.filter(j => j.status === 'Applied').length;
-  const interview = jobs.filter(j => j.status === 'Interview').length;
-  const rejection = jobs.filter(j => j.status === 'Rejection').length;
-  const success = jobs.filter(j => j.status === 'Offer').length;
-  
-  // Calculate Rates
-  const successRate = total > 0 ? ((success / total) * 100).toFixed(1) : 0;
-  const rejectionRate = total > 0 ? ((rejection / total) * 100).toFixed(1) : 0;
-  const pending = jobs.filter(j => j.status === 'Applied' || j.status === 'Interview').length;
-
-  return (
-    <div className="stats-container">
-      <StatCard title="Total Applied" value={total} color="#3498db" />
-      <StatCard title="Active Interviews" value={interview} color="#27ae60" />
-      <StatCard title="Total Offers" value={success} color="#f1c40f" />
-      <StatCard title="Success Rate" value={`${successRate}%`} color="#2ecc71" />
-      <StatCard title="Rejection Rate" value={`${rejectionRate}%`} color="#e74c3c" />
-      <StatCard title="Pending Review" value={pending} color="#9b59b6" />
-    </div>
-  );
-}
+import React from 'react';
 
 const StatCard = ({ title, value, color }) => (
   <div className="stat-card" style={{ borderLeft: `5px solid ${color}` }}>
@@ -29,3 +6,19 @@ const StatCard = ({ title, value, color }) => (
     <p>{title}</p>
   </div>
 );
+
+const DashboardStats = ({ jobs }) => {
+  const total = jobs.length;
+  const pending = jobs.filter(j => j.status === 'Pending').length;
+  const interviewing = jobs.filter(j => j.status === 'Interviewing').length;
+
+  return (
+    <div className="dashboard-stats">
+      <StatCard title="Total Jobs" value={total} color="#3498db" />
+      <StatCard title="Pending" value={pending} color="#f1c40f" />
+      <StatCard title="Interviewing" value={interviewing} color="#2ecc71" />
+    </div>
+  );
+};
+
+export default DashboardStats;
